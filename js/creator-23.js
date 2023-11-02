@@ -1721,9 +1721,9 @@ function toggleStarDot() {
 	for (var key of Object.keys(card.bottomInfo)) {
 		var text = card.bottomInfo[key].text
 		if (text.includes('*')) {
-			card.bottomInfo[key].text = text.replace('*', ' \u2022 ');
+			card.bottomInfo[key].text = text.replace('*', '');
 		} else {
-			card.bottomInfo[key].text = text.replace(' \u2022 ', '*');
+			card.bottomInfo[key].text = text.replace(' \u2022 ', '');
 		}
 	}
 	defaultCollector.starDot = !defaultCollector.starDot;
@@ -1808,7 +1808,7 @@ function drawCard() {
 }
 //DOWNLOADING
 function downloadCard(alt = false) {
-	if (card.infoArtist.replace(/ /g, '') == '' && !card.artSource.includes('/img/blank.png') && !card.artZoom == 0) {
+	if (card.infoArtist.replace(/ /g, '') == '!!' && !card.artSource.includes('/img/blank.png') && !card.artZoom == 0) {
 		notify('You must credit an artist before downloading!', 5);
 	} else {
 		// Prep file information
